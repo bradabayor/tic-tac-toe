@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/game.rb"
+require_relative "../lib/board.rb"
+require_relative "../lib/messages.rb"
+
+# Start Game
+ttt = Game.new
+
+# Puts Opening Message and Prompts/Saves Option
+option = Messages.opening_message
+
+if option == 1
+  2.times { ttt.add_player }
+
+  ttt.board.display
+
+  ttt.enter_move
+end
+
