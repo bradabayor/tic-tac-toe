@@ -15,6 +15,16 @@ if option == 1
 
   ttt.board.display
 
-  ttt.enter_move
+  until ttt.board.check_win || ttt.board.check_draw do
+
+    begin
+      ttt.save_move
+      ttt.board.display
+      ttt.switch_active_player
+    rescue InvalidSlotError => e
+      Messages.display_error(e)
+      retry
+    end
+  end
 end
 

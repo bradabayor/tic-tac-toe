@@ -16,10 +16,16 @@ class Messages
     return gets.chomp.to_s
   end
 
-  def self.prompt_move
+  def self.prompt_move(player)
     print %{
-  Enter Your Move: }
+  #{player.name}'s Move: }
     return gets.chomp.to_s
+  end
+
+  def self.display_error(e)
+    puts %{
+  Error! => #{e.message}
+    }
   end
 end
 
